@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Placar de Jogo</title>
+</head>
+<body>
+<div>
+    <h1>Placar: <span id="placar">0</span></h1>
+    <button onclick="iniciarJogo()">ON</button>
+    <button onclick="off()">OFF</button>
+</div>
+<script>
+    let placar = 0;
+    let onGame = true;  // Variável para controlar o jogo
+
+    function atualizarPlacar() {
+        const placarElement = document.getElementById("placar");
+        placarElement.textContent = placar;
+    }
+
+    function incrementarPlacar() {
+        if (onGame) {
+            placar += 1;
+            atualizarPlacar();
+            console.log(onGame)
+        }
+    }
+
+    // Iniciar o jogo e chamar a função de incrementar a cada segundo
+    function iniciarJogo() {
+        onGame = true;
+        setInterval(incrementarPlacar, 1000);
+    }
+
+    // Parar o jogo
+    function pararJogo() {
+        onGame = false;
+    }
+
+    // Iniciar o jogo ao carregar a página
+    iniciarJogo();
+
+    // Exemplo de como parar o jogo após alguns segundos (5 segundos no exemplo)
+    //setTimeout(pararJogo, 5000);
+
+    function on(){
+        onGame = true;
+    }
+    function off(){
+        onGame = false;
+    }
+</script>
+</body>
+</html>
